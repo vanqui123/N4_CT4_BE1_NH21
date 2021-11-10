@@ -2,15 +2,15 @@
     require "config.php";
     require "models/db.php";
     require "models/product.php";
-	require "models/manufacture.php";
-	$manu = new Manufacture;
     $product = new Product;
-	
     $getAllProducts = $product->getAllProducts();
     $getNew10product= $product->getNew10Product();
     $getProductLapTop= $product->getProductLapTop();
 	$getProductIpad=$product->getProductIpad();
 	$getProductPhones= $product->getProductPhones();
+	require "models/manufacture.php";
+	$Manufacture = new Manufacture;
+	$getAllManu = $Manufacture->getAllManu();
 
     // var_dump($getAllProducts);
 
@@ -80,7 +80,7 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo">
+								<a href="index.php" class="logo">
 									<img src="./img/logo.png" alt="">
 								</a>
 							</div>
@@ -187,14 +187,12 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
+						
 						<li class="active"><a href="#">Home</a></li>
-						<?php
-						$getAllManu = $manu->getAllManu();
-						foreach($getAllManu as $value):
-						?>
-						<li><a href="products.php?manu_id=<?php echo $value["manu_id"] ?>">
-						<?php echo $value["manu_name"]?></a></li>
-						<?php endforeach;?>
+						<?php foreach($getAllManu as $value): ?>
+							<li class=""><a href="products.php?manu_id=<?php echo $value['manu_id'];?>"><?php echo $value['manu_name']?></a></li>
+							<?php endforeach ?>
+
 					</ul>
 					<!-- /NAV -->
 				</div>
