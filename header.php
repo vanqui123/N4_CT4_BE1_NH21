@@ -6,11 +6,14 @@
     $getAllProducts = $product->getAllProducts();
     $getNew10product= $product->getNew10Product();
     $getProductLapTop= $product->getProductLapTop();
-	$getProductIpad=$product->getProductIpad();
 	$getProductPhones= $product->getProductPhones();
 	require "models/manufacture.php";
 	$Manufacture = new Manufacture;
 	$getAllManu = $Manufacture->getAllManu();
+	require "models/protypers.php";
+	$protypes = new Protypes;
+	$getAllProtypes = $protypes->getAllProtypes();
+
 
     // var_dump($getAllProducts);
 
@@ -188,7 +191,7 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						
-						<li class="active"><a href="#">Home</a></li>
+						<li class="active"><a href="index.php">Home</a></li>
 						<?php foreach($getAllManu as $value): ?>
 							<li class=""><a href="products.php?manu_id=<?php echo $value['manu_id'];?>"><?php echo $value['manu_name']?></a></li>
 							<?php endforeach ?>
