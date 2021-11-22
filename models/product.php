@@ -18,7 +18,15 @@
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
-
+    //Hàm count propertype
+    function CountProductbyTypeId($type_id){
+        $sql = self::$connection->prepare("SELECT COUNT(*) FROM products WHERE type_id=?");
+        $sql->bind_param("i", $type_id);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
     public function getProductsByManu($manu_id)
     {
         $sql = self::$connection->prepare("SELECT * FROM products WHERE manu_id = ?");
@@ -88,7 +96,7 @@
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
-    function getProductIpad(){
+    function getProductWatch(){
         $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id`=4");
         $sql->execute(); //return an object
         $items = array();
