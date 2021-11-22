@@ -42,26 +42,8 @@
                       <th style="width: 1%">
                           ID
                       </th>
-                      <th style="width: 10%">
-                          Name
-                      </th>
-                      <th style="width: 8%">
-                          Image
-                      </th>
-                      <th style="width: 8%" class="text-center">
-                          Price
-                      </th>
-                      <th style="width: 8%" class="text-center">
-                          Manufacture
-                      </th>
-                      <th style="width: 8%" class="text-center">
-                          Protype
-                      </th>
-                      <th style="width: 13%" class="text-center">
-                          Description
-                      </th>
                       <th style="width: 10%" class="text-center">
-                          Created
+                          Name
                       </th>
                       <th style="width: 12%" class="text-center">
                           Action
@@ -69,37 +51,19 @@
                   </tr>
               </thead>
               <tbody>
-                  <?php foreach($getAllProducts as $value): ?>
+                  <?php foreach($getAllManu as $value): ?>
                   <tr>
                       <td>
-                  <?php echo $value['id'] ?>
-                          
-                      </td>
-                      <td>
-                      <?php echo $value['name'] ?>
-                      </td>
-                      <td > <img style="width: 40%;" src="../img/<?php echo $value["image"]; ?>" alt="">
-                      </td>
-                      <td class="text-center">
-                      <?php echo number_format($value['price'])."VND"; ?>
+                  <?php echo $value['manu_id'] ?>
                       </td>
                       <td class="text-center">
                       <?php echo $value['manu_name'] ?>
                       </td>
-                      <td class="text-center">
-                      <?php echo $value['type_name'] ?>
-                      </td>
-                      <td class="text-center">
-                      <?php echo substr($value['description'],0,100)."..."?>
-                      </td>
-                      <td class="text-center">
-                      <?php echo $value['created_at'] ?>
-                      </td>
-                      <td class="project-actions text-right" >
+                      <td class="project-actions text-center" >
                           <a class="btn btn-info btn-sm" href="#">
                               <i class="fas fa-pencil-alt">
                               </i>
-                              Edit  
+                              Edit
                           </a>
                           <a class="btn btn-danger btn-sm" href="#">
                               <i class="fas fa-trash">
