@@ -67,10 +67,9 @@
 							<h3 class="title">New Products</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+								<?php foreach($getAllProtypes as $value): ?>
+							<li class=""><a href="products.php?type_id=<?php echo $value['type_id'];?>"><?php echo $value['type_name']?></a></li>
+							<?php endforeach ?>
 								</ul>
 							</div>
 						</div>
@@ -84,7 +83,7 @@
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
-                                        <?php foreach($getProductLapTop as $value): ?>
+                                        <?php foreach($getNew10product as $value): ?>
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
@@ -187,10 +186,9 @@
 							<h3 class="title">Top selling</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+								<?php foreach($getAllProtypes as $value): ?>
+							<li class=""><a href="products.php?type_id=<?php echo $value['type_id'];?>"><?php echo $value['type_name']?></a></li>
+							<?php endforeach ?>
 								</ul>
 							</div>
 						</div>
@@ -205,7 +203,7 @@
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										<?php foreach($getProductIpad as $value): ?>
+										<?php foreach($getProductLapTop as $value): ?>
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/<?php echo $value['image']?>"alt="">
@@ -217,7 +215,7 @@
 											<div class="product-body">
 												<p class="product-category">Category</p>
 												<h3 class="product-name"><a href="#"><?php echo $value['name']?></a></h3>
-												<h4 class="product-price"><?php echo  number_format($value['price'])?></h4>
+												<h4 class="product-price"><?php echo  number_format($value['price'])?>&ensp; VND</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
