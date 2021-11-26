@@ -101,7 +101,7 @@
                               </i>
                               Edit  
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                          <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $value['id']; ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
