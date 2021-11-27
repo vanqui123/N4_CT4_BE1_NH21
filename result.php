@@ -230,6 +230,11 @@
 							<?php if(isset($_GET['keyword'])):
 									$keyword = $_GET['keyword'];
 									$search= $product->search($keyword);
+									$perPage =3;
+									$page =isset($_GET['page'])?$_GET['page']:1; 
+									$total = count($search);
+									$url = $_SERVER['PHP_SELF']."?keyword=".$keyword;
+									$search = $product->search3($keyword,$page, $perPage);
 									if(count($search)==0){
 									echo "	<h2>Không tìm thấy sản phẩm</h2>";}
 									else
@@ -267,7 +272,7 @@
 								</div>
 							</div>
 							<?php endforeach;
-							endif ?>
+							 ?>
 							<!-- /product -->
 						</div>
 						<!-- /store products -->
@@ -276,13 +281,11 @@
 						<div class="store-filter clearfix">
 							<span class="store-qty">Showing 20-100 products</span>
 							<ul class="store-pagination">
-								<li class="active">1</li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+							<?php echo $product->paginate($url, $total, $perPage); ?>
+								
 							</ul>
 						</div>
+						<?php endif?>
 						<!-- /store bottom filter -->
 					</div>
 					<!-- /STORE -->
