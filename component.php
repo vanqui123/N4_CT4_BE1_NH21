@@ -1,6 +1,6 @@
 
 <?php
-function componentNew10Product($name,$price,$image,$id){
+function componentNewByID($name,$price,$image,$id){
 ?>
    
 										<!-- product -->

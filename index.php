@@ -72,43 +72,20 @@ require_once('component.php');
 							<h3 class="title">New Products</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-								<?php foreach($getAllProtypes as $value): ?>
-							<li class=""><a href="products.php?type_id=<?php echo $value['type_id'];?>"><?php echo $value['type_name']?></a></li>
-				
-						<?php endforeach ?>
+								<?php foreach ($getAllProtypes as $value) : ?>
+								<li class="<?php if (isset($_GET['type_id']) && $_GET['type_id'] ==  $value['type_id']) {
+												echo 'active';
+											} else echo ""; ?>">
+									<a href="index.php?type_id=<?php echo $value['type_id']; ?>">
+										<?php echo $value['type_name'] ?></a>
+								</li>
+							<?php endforeach ?>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<!-- /section title -->
-					<?php
-																						
-					if(isset($_POST['add'])){
-					// print_r($_POST['id']);
-					if(isset($_SESSION['cart'])){
-					$item_array_id = array_column($_SESSION['cart'],'id');	
 					
-					if(in_array($_POST['id'],$item_array_id)){
-						echo "<script>alert('Product is already added in the cart..!')</script>";
-						echo "<script>window.location = 'index.php'</script>";
-					}else{
-					$count = count($_SESSION['cart']);
-					$item_array = array(
-						'id'=> $_POST['id']
-						);
-						$_SESSION['cart'][$count] =$item_array;
-					
-					}															
-					}
-					else{
-					$item_array = array(
-					'id'=> $_POST['id']
-					);
-					$_SESSION['cart'][0]=$item_array;
-					print_r($_SESSION['cart']);
-					}
-					}
-					?>
 					<!-- Products tab & slick -->
 					<div class="col-md-12">
 					
@@ -119,8 +96,12 @@ require_once('component.php');
 									<div class="products-slick" data-nav="#slick-nav-1">
                                       
 						<?php
-						foreach ( $getNew10product as $value){
-							componentNew10Product($value['name'],$value['price'],$value['image'],$value['id']);
+							if (isset($_GET["type_id"])) {
+								$type_id = $_GET["type_id"];
+							 $getProductsByType = $product->getProductsByType($type_id);
+							foreach (  $getProductsByType  as $value){
+								componentNewByID($value['name'],$value['price'],$value['image'],$value['id']);
+							}
 						}
 						
 						?>
