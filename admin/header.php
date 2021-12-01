@@ -219,8 +219,9 @@ $getAllManu = $manu->getAllManu();
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
-                            <a href="index.php" class="nav-link active">
+                        <?php $activePage = basename($_SERVER['PHP_SELF'], ".php"); ?>
+                        <li class="nav-item">
+                            <a href="index.php" class="nav-link <?= ($activePage == 'index') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -228,7 +229,7 @@ $getAllManu = $manu->getAllManu();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="products.php" class="nav-link">
+                            <a href="products.php" class="nav-link <?= ($activePage == 'products') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Product
@@ -236,7 +237,15 @@ $getAllManu = $manu->getAllManu();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="manufacture.php" class="nav-link">
+                            <a href="addproduct.php" class="nav-link <?= ($activePage == 'addproduct') ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Add Product
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="manufacture.php" class="nav-link <?= ($activePage == 'manufacture') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Manufacture
@@ -244,7 +253,7 @@ $getAllManu = $manu->getAllManu();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="protype.php" class="nav-link ">
+                            <a href="protype.php" class="nav-link <?= ($activePage == 'protype') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Protypes
@@ -252,7 +261,7 @@ $getAllManu = $manu->getAllManu();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link ">
+                            <a href="index.php" class="nav-link <?= ($activePage == 'index') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Users
