@@ -95,9 +95,14 @@ if (isset($_POST['remove'])){
                             ?>VNĐ</h6>
                     </div>
                 </div>
+               
             </div>
-
+           
         </div>
+        <div>
+                    <h2 class="pay-ment">Thanh Toán</h2>
+                </div>
+
     </div>
 </div>
 
