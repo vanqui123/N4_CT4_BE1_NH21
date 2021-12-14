@@ -1,4 +1,5 @@
-<?php class Db
+<?php
+class Db
 {
     public static $connection;
     public function __construct()
@@ -10,3 +11,7 @@
         return self::$connection;
     }
 }
+if(!isset($_SESSION['user'])){
+    header('location:/n4_ct4_be1_nh21/login');
+}
+
