@@ -105,7 +105,6 @@ if (isset($_POST['add'])) {
 							<li><a href="#"><i class="fa fa-user-o"></i> <?php echo $_SESSION['user']?> </a></li>
 							<li><a href="models/logout.php"><i</i>/ Logout </a></li>
 							<?php	} ?>
-					
 				</ul>
 			</div>
 		</div>
