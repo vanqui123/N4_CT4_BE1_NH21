@@ -271,6 +271,14 @@ $getAllManu = $manu->getAllManu();
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item menu-open">
+            <a href="managent_order.php" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Oder Managent
+              </p>
+            </a>
+            </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

@@ -18,30 +18,45 @@ $getAllManu = $Manufacture->getAllManu();
 $protypes = new Protypes;
 $getAllProtypes = $protypes->getAllProtypes();
 
-
-if (isset($_POST['add'])) {
+if(isset($_POST['add'])){
 	// print_r($_POST['id']);
-	if (isset($_SESSION['cart'])) {
-		$item_array_id = array_column($_SESSION['cart'], 'id');
-
-		if (in_array($_POST['id'], $item_array_id)) {
-			echo "<script>alert('Product is already added in the cart..!')</script>";
-			echo "<script>window.location = 'index.php'</script>";
-		} else {
-			$count = count($_SESSION['cart']);
-			$item_array = array(
-				'id' => $_POST['id']
-			);
-			$_SESSION['cart'][$count] = $item_array;
-		}
-	} else {
-		$item_array = array(
-			'id' => $_POST['id']
-		);
-		$_SESSION['cart'][0] = $item_array;
-		print_r($_SESSION['cart']);
+	if(isset($_SESSION['cart'])){
+	$myitems =	array_column($_SESSION['cart'],'name');
+	if(in_array($_POST['name'],$myitems)){
+		echo"<script> alert('Item Already Added');
+				window.location.href ='index.php';
+			</script>";
+		
 	}
-}
+	else{
+		$count = count($_SESSION['cart']);
+		$_SESSION['cart'][$count] = array(
+		'id'=> $_POST['id'],
+		'image'=> $_POST['image'],
+		'name'=> $_POST['name'],
+		'price'=> $_POST['price'],
+		'Quantity'=>1,
+		);
+		echo"<script> alert('Item Already Added');
+				window.location.href ='index.php';
+			</script>";
+	}
+															
+	}
+	else{
+		$_SESSION['cart'][0] = array(
+			'id'=> $_POST['id'],
+	'image'=> $_POST['image'],
+	'name'=> $_POST['name'],
+	'price'=> $_POST['price'],
+	'Quantity'=>1
+	);
+	echo"<script> alert('Item Adeed');
+				window.location.href ='index.php';
+			</script>";
+	}
+	}
+	
 
 ?>
 <!DOCTYPE html>
