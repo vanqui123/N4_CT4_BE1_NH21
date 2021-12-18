@@ -29,15 +29,14 @@
         <div class="main-agileinfo">
             <div class="agileits-top">
                 <form action="resigter.php" method="post" novalidate>
-                    <input class="text" type="text" name="fullname" placeholder="Full name" required="" required pattern="[a-zA-Z0-9]{3,}(\s?\w+)*"> <br>
+                    <input class="text" type="text" name="fullname" placeholder="Full name" required=""> <br>
                     <input class="text" type="text" name="username" placeholder="Username" required="">
                     <div>
-                        <input class="text email" type="email" name="email" placeholder="Email" required="" required pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})">
-                        <div class="valid-feedback">Nhập Đúng!!</div>
-                        <div class="invalid-feedback">Viết sai email</div>
+                        <input class="text email" type="email" name="email" placeholder="Email" required="">
                     </div>
+                    <input class="text" type="text" name="phone" placeholder="Phone" required=""> <br>
 
-                    <input class="text" type="password" name="password" placeholder="Password" required="" required pattern=".{10,}">
+                    <input class="text" type="password" name="password" placeholder="Password" required="">
                     <input class="text w3lpass" type="password" name="repassword" placeholder="Confirm Password" required="">
                     <div class="wthree-text">
                         <label class="anim">
@@ -48,7 +47,7 @@
                     </div>
                     <input type="submit" value="SIGNUP" name="submit">
                 </form>
-                <p>Don't have an Account? <a href="index.php"> Login Now!</a></p>
+                <p>You have an account? <a href="index.php"> Login Now!</a></p>
             </div>
         </div>
         <!-- copyright -->
@@ -70,17 +69,6 @@
         </ul>
     </div>
     <!-- //main -->
-    <script>
-        const form = document.querySelector('form');
-        form.onsubmit = (e) => {
-            if (form.checkValidity() === false) {
-                //Ngăn ko cho form được gửi đi
-                e.preventDefault();
-                e.stopPropagation()
-            }
-            form.classList.add('was-validated');
-        };
-    </script>
 </body>
 
 </html>

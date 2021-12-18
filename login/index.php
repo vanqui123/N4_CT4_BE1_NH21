@@ -47,9 +47,6 @@
 							</div>
 							<input type="password" class="form-control" placeholder="password" name="password">
 						</div>
-						<div class="row align-items-center remember">
-							<input type="checkbox">Remember Me
-						</div>
 						<div class="form-group">
 							<input type="submit" name="submit" value="Login" class="btn float-right login_btn">
 						</div>
@@ -59,10 +56,6 @@
 				<div class="card-footer">
 					<div class="d-flex justify-content-center links">
 						Don't have an account?<a href="signup.php">Sign Up</a>
-						Don't have an account?<a href="#">Sign Up</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="#">Forgot your password?</a>
 					</div>
 				</div>
 			</div>

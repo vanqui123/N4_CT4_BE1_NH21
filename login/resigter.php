@@ -10,16 +10,16 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];
     $email = $_POST['email'];
+    $phone = $_POST['phone'];
     $repassword = md5($repassword);
    
     $role = 2;
-
     if ($user->checkUsername($username)) {
         echo "<script>alert('Username đã tồn tại..!')</script>";
     } elseif ($user->checkEmail($email)) {
         echo "<script>alert('Email đã tồn tại..!')</script>";
     } elseif (md5($password) == $repassword) {
-        $user->resigter($fullname, $username, $password, $email, $role);
+        $user->resigter($fullname, $username, $password, $email,$phone,$role);
         echo "<script>alert('Đăng kí thành công!!Trở về trang đăng nhập..!')</script>";
         echo "<script>window.location = 'index.php'</script>";
     } else {

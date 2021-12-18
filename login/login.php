@@ -8,12 +8,16 @@ $user = new User;
     $username = $_POST['username'];
     $password = $_POST['password'];
     if (!$username || !$password) {
-        echo "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        echo "<script>alert('Vui lòng điền đầy đủ thông tin..!')</script>";
         exit;
     }
     if ($user->checkLogin($username, $password)) {
         $_SESSION['user'] = $username;
-        if ($username == 'admin1') {
+        $getroles = $user->checkRoles($username);
+        foreach($getroles as $value){
+            $_SESSION['id']=$value['roles'];
+        }
+        if ($_SESSION['id']==1) {
             header('location:../admin');
         } else {
             header('location:/n4_ct4_be1_nh21/');

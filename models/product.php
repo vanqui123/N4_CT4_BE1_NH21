@@ -123,6 +123,18 @@
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
-  
+    function countProductByManu($manu_id){
+        $sql = self::$connection->prepare("SELECT COUNT(*) FROM products WHERE manu_id=?");
+        $sql->bind_param("i", $manu_id);
+        return $sql->execute(); //return an object
+    }
+    public function getProductsFeature()
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `feature`=1 ORDER BY `id` DESC LIMIT 3");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
 
 }
