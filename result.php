@@ -5,14 +5,17 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-					<div class="col-md-12">
-						<ul class="breadcrumb-tree">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">All Categories</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li class="active">Headphones (<?php echo count($getAllProducts); ?>)</li>
-						</ul>
-					</div>
+				<div class="col-md-12">
+				<ul class="breadcrumb-tree">
+				<li><a href="#">Search Results</a></li>
+					<li class="active"> <?php if (isset($_GET['keyword'])) {
+											$keyword = $_GET['keyword'];
+											echo $keyword;
+											echo " (". count($product->search($keyword)) .")";
+										} ?></li>
+										
+				</ul>
+			</div>
 				</div>
 				<!-- /row -->
 			</div>

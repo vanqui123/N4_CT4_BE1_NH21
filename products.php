@@ -6,11 +6,17 @@
 		<!-- row -->
 		<div class="row">
 			<div class="col-md-12">
-				<ul class="breadcrumb-tree">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">All Categories</a></li>
-					<li><a href="#">Accessories</a></li>
-					<li class="active">Headphones (227,490 Results)</li>
+			<ul class="breadcrumb-tree">
+					<li><a href="#">Search Results</a></li>
+					<li class="active"><?php
+										if (isset($_GET['manu_id']))
+											foreach ($getAllManu as $value) {
+												if ($_GET['manu_id'] == $value['manu_id']) {
+													echo $value['manu_name'];
+													echo " (" . count($product->getProductsByManu($_GET['manu_id'])) . ")";
+												}
+											}
+										?></li>
 				</ul>
 			</div>
 		</div>
