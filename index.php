@@ -99,11 +99,11 @@ require_once('component.php');
 									$type_id = $_GET["type_id"];
 									$getProductsByType = $product->getProductsByType($type_id);
 									foreach ($getProductsByType  as $value) {
-										componentNewByID($value['name'], $value['price'], $value['image'], $value['id']);
+										componentNewByID($value['name'], $value['price'], $value['image'], $value['id'],$value['type_id']);
 									}
 								} else {
 									foreach($getAllProducts as $vl){
-										componentNewProduct($vl['name'], $vl['price'], $vl['image'], $vl['id']);
+										componentNewProduct($vl['name'], $vl['price'], $vl['image'], $vl['id'],$vl['type_id']);
 
 									}
 								}

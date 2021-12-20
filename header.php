@@ -70,6 +70,7 @@ if(isset($_POST['add'])){
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<title>Electro - HTML Ecommerce Template</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -86,8 +87,8 @@ if(isset($_POST['add'])){
 
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-
 	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="style_detail.css" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -186,16 +187,33 @@ if(isset($_POST['add'])){
 								</a>
 								<div class="cart-dropdown">
 									<div class="cart-list">
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+									<?php 
+													
+													if (isset($_SESSION['cart'])){
+														$product_id = array_column($_SESSION['cart'], 'id');
+														foreach($getAllProducts as $value){                  
+															foreach ($product_id as $id){
+																if ($value['id'] == $id){
+													?>
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="./img/<?php echo $value['image']?>" alt="">
+												</div>
+												<div class="product-body">
+													
+													<h3 class="product-name"><a href="#"><?php echo $value['name']?></a></h3>
+													<h4 class="product-price"><?php echo number_format($value['price'])  ?>VNĐ</h4>
+												
+												
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
+											<?php 
+												}
+																}
+															}
+														}
+												?>
 									</div>
 
 									<div class="cart-btns">

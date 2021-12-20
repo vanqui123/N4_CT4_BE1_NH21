@@ -1,7 +1,7 @@
 <?php
 
 /** The name of the database for WordPress */
-define('DB_NAME', 'nhom4-be');
+define('DB_NAME', 'nhom4');
 /** MySQL database username */
 define('DB_USER', 'root');
 /** MySQL database password */

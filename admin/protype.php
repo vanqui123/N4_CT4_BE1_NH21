@@ -65,7 +65,8 @@
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                          <a class="btn btn-danger btn-sm" href="delprotype.php?type_id=<?php echo $value['type_id']?>"
+                          onClick="return confirm('Bạn thực sự muốn xóa?')">
                               <i class="fas fa-trash">
                               </i>
                               Delete

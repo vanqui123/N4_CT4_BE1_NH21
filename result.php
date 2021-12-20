@@ -1,4 +1,6 @@
-<?php include "header.php";?>
+<?php include "header.php";
+
+?>
 		<!-- BREADCRUMB -->
 		<div id="breadcrumb" class="section">
 			<!-- container -->
@@ -243,6 +245,8 @@
 									else
 									foreach($search as $value):
 								?>
+	<form action="index.php" method="post" enctype="multipart/form-data">
+
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
@@ -270,8 +274,15 @@
 										</div>
 									</div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
+				<form action="index.php" method="post">
+					<button type="submit" name="add" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+					<input type="hidden" name="id" value="<?php echo $value['id']; ?>" />
+					<input type="hidden" name="image" value="<?php echo $value['image']; ?>" />
+					<input type="hidden" name="name" value="<?php echo $value['name']; ?>">
+					<input type="hidden" name="price" value="<?php echo $value['price']; ?>">
+				</form>
+			</div>
+									</form>
 								</div>
 							</div>
 							<?php endforeach;

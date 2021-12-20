@@ -1,5 +1,5 @@
 <?php
-function componentNewByID($name, $price, $image, $id)
+function componentNewByID($name, $price, $image, $id,$type_id)
 {
 ?>
 	<!-- product -->
@@ -24,7 +24,8 @@ function componentNewByID($name, $price, $image, $id)
 				<div class="product-btns">
 					<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 					<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-					<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+					<a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a> 
+
 				</div>
 			</div>
 
@@ -57,7 +58,7 @@ function componentNewByID($name, $price, $image, $id)
 			</div>
 			<div class="product-body">
 				<p class="product-category">Category</p>
-				<h3 class="product-name"><a href="#"><?php $name ?></a></h3>
+				<h3 class="product-name"><a href="#"><?php echo $name ?></a></h3>
 				<h4 class="product-price"><?php echo  number_format($price) ?>&ensp; VND</h4>
 				<div class="product-rating">
 					<i class="fa fa-star"></i>
@@ -125,7 +126,7 @@ function componentNewByID($name, $price, $image, $id)
 	</form>
 <?php } ?>
 <?php
-function componentNewProduct($name, $price, $image, $id)
+function componentNewProduct($name, $price, $image, $id,$type_id)
 {
 ?>
 	<!-- product -->
@@ -150,7 +151,7 @@ function componentNewProduct($name, $price, $image, $id)
 				<div class="product-btns">
 					<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 					<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-					<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+					 <a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a> 
 				</div>
 			</div>
 

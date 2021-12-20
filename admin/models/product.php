@@ -19,6 +19,34 @@
         $sql->bind_param("siiissi", $name, $manu_id, $type_id, $price, $image, $desc, $feature);
         return $sql->execute(); //return an object
     }
+    public function addProType($name)
+    {   
+        $sql = self::$connection->prepare("INSERT 
+        INTO`protypes`( `type_name`) 
+        VALUES (?)");
+        $sql->bind_param("s", $name);
+        return $sql->execute(); //return an object
+    }
+    public function delProtype($type_id)
+    {
+        $sql = self::$connection->prepare("DELETE FROM `protypes` WHERE `type_id` =?");
+        $sql->bind_param("i", $type_id);
+        return $sql->execute(); //return an object
+    }
+    public function addManu($name)
+    {   
+        $sql = self::$connection->prepare("INSERT 
+        INTO `manufactures`( `manu_name`) 
+        VALUES (?)");
+        $sql->bind_param("s", $name);
+        return $sql->execute(); //return an object
+    }
+    public function delManu($manu_id)
+    {
+        $sql = self::$connection->prepare("DELETE FROM `manufactures` WHERE `manu_id` =?");
+        $sql->bind_param("i", $manu_id);
+        return $sql->execute(); //return an object
+    }
     public function delProduct($id)
     {
         $sql = self::$connection->prepare("DELETE FROM `products` WHERE `products`.`id` =?");

@@ -20,7 +20,7 @@ $user = new User;
         if ($_SESSION['id']==1) {
             header('location:../admin');
         } else {
-            header('location:/n4_ct4_be1_nh21/');
+            header('location:index.php');
         }
     } else
         echo "<script>alert('Tài Khoản hoặc mật khẩu sai..!')</script>";

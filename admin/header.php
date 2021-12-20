@@ -255,7 +255,16 @@ $getAllManu = $manu->getAllManu();
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                                <li class="nav-item">
+                                <a href="addmanu.php" class="nav-link <?= ($activePage == 'addmanu') ? 'active' : ''; ?>">
+                                   
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                    Add Manufactures
+                                    </p>
+                                    </a>
+                                    </li>
+                                <li class="nav-item">
                             <a href="protype.php" class="nav-link <?= ($activePage == 'protype') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -263,6 +272,15 @@ $getAllManu = $manu->getAllManu();
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                                <a href="addprotype.php" class="nav-link <?= ($activePage == 'addprotype') ? 'active' : ''; ?>">
+                                   
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                    Add ProTypes
+                                    </p>
+                                    </a>
+                                    </li>
                         <li class="nav-item">
                             <a href="index.php" class="nav-link <?= ($activePage == 'index') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>

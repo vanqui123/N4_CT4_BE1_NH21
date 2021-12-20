@@ -60,7 +60,7 @@
             </div>
             <div class="form-group">
               <label for="inputClientCompany">Price</label>
-              <input type="number" id="inputClientCompany" class="form-control" name="price">
+              <input type="number" id="inputPrice" class="form-control" name="price">
             </div>
             <div class="form-group">
               <label for="inputStatus">Feature</label>
@@ -96,4 +96,5 @@
 </div>
 <!-- /.content-wrapper -->
 
+</script>
 <?php include "footer.html"; ?>

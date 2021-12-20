@@ -3,4 +3,4 @@
 if (isset($_SESSION['user'])){
     unset($_SESSION['user']); // xóa session login
 }
-header('location:../index.php');
+header('location:.../Nhom4BE/index.php');
