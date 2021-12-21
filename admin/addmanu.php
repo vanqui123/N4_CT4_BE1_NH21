@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Manufacture</h1>
+            <h1>Project Add</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -19,7 +19,7 @@
     </section>
 
     <!-- Main content -->
-    <form action="addmanufactor.php" method="post"  enctype="multipart/form-data">
+    <form action="addmanufactor.php" method="post"  enctype="multipart/form-data" onsubmit="return validateForm3()">
     <section class="content">
       <div class="row">
         <div class="col-md-12">
@@ -36,7 +36,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName" >Name</label>
-                <input type="text" id="inputName" class="form-control" name="name">
+                <input type="text" id="ipname" class="form-control" name="name">
               </div>
             </div>
             <!-- /.card-body -->
@@ -56,5 +56,23 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <script>
+  function validateForm3()
+{
 
+var name = document.getElementById('ipname').value;
+
+
+if (name== ''){
+alert('Bạn chưa nhập name');
+}
+
+else{
+alert('Dữ liệu hợp lệ, ta có thể chấp nhận submit form');
+return true;
+}
+
+return false;
+}
+</script>
   <?php include 'footer.html';?>

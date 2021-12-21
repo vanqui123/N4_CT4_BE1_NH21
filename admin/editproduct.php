@@ -19,7 +19,7 @@
   </section>
 
   <!-- Main content -->
-  <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data">
+  <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
     <section class="content">
       <div class="row">
         <div class="col-md-12">
@@ -64,7 +64,7 @@
                   </div>
                   <div class="form-group">
                     <label for="inputClientCompany">Price</label>
-                    <input type="number" id="inputClientCompany" class="form-control" name="price" value="<?php echo $value['price']; ?>">
+                    <input type="text" id="inputPrice" class="form-control" name="price" value="<?php echo $value['price']; ?>">
                   </div>
                   <div class="form-group">
                     <label for="inputStatus">Feature</label>

@@ -14,7 +14,37 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+function validateForm()
+{
 
+var name = document.getElementById('inputName').value;
+var price = document.getElementById('inputPrice').value;
+var des = document.getElementById('inputDescription').value;
+
+if (name== ''){
+alert('Bạn chưa nhập name');
+}
+else if (price == '')
+{
+alert('Bạn chưa nhập price');
+
+}
+else if(isNaN(price)){
+alert('Price phải là số');
+
+}
+else if (des == '')
+{
+alert('Bạn chưa nhập Description');
+}
+else{
+alert('Dữ liệu hợp lệ, ta có thể chấp nhận submit form');
+return true;
+}
+
+return false;
+}
+</script>
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
