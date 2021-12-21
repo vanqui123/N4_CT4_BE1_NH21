@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Manufactures</h1>
+            <h1>Users</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -42,32 +42,63 @@
                       <th style="width: 1%">
                           ID
                       </th>
-                      <th style="width: 10%" class="text-center">
-                          Name
+                      <th style="width: 10%">
+                          Full Name
                       </th>
+                      <th style="width: 8%">
+                          Username
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Password
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Email
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Phone
+                      </th>
+                      <th style="width: 13%" class="text-center">
+                          Roles
+                      </th> 
                       <th style="width: 12%" class="text-center">
                           Action
                       </th>
                   </tr>
               </thead>
               <tbody>
-                  <?php foreach($getAllManu as $value): ?>
+                  <?php
+                    $getAllUser=$user->getAllUser();
+                  foreach($getAllUser as $value): ?>
                   <tr>
                       <td>
-                  <?php echo $value['manu_id'] ?>
+                  <?php echo $value['user_id'] ?>
+                          
+                      </td>
+                      <td>
+                      <?php echo $value['fullname'] ?>
                       </td>
                       <td class="text-center">
-                      <?php echo $value['manu_name'] ?>
+                      <?php echo $value['username'] ?>
                       </td>
-                      <td class="project-actions text-center" >
-                          <a class="btn btn-info btn-sm" href="#">
+                      <td class="text-center">
+                      <?php echo $value['password'] ?>
+                      </td>
+                      <td class="text-center">
+                      <?php echo $value['email'] ?>
+                      </td>
+                      <td class="text-center">
+                      <?php echo $value['phone'] ?>
+                      </td>
+                      <td class="text-center">
+                      <?php echo $value['role_name'] ?>
+                      </td>
+                      <td class="project-actions text-right" >
+                          <a class="btn btn-info btn-sm" href="editproduct.php?id=<?php echo $value['user_id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
-                              Edit
+                              Edit  
                           </a>
-                          <a class="btn btn-danger btn-sm" href="delmanu.php?manu_id=<?php echo $value['manu_id']?>"
-                          onClick="return confirm('Bạn thực sự muốn xóa?')"
-                          >
+                          <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $value['user_id']; ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

@@ -45,7 +45,7 @@ function componentNewByID($name, $price, $image, $id,$type_id)
 	<!-- /product -->
 <?php }
 ?>
-<?php function componentLapTop($name, $price, $image, $id)
+<?php function componentProFeature($name, $price, $image, $id,$type_id)
 { ?>
 	<form action="index.php" method="post" enctype="multipart/form-data">
 		<div class="product">
@@ -70,7 +70,7 @@ function componentNewByID($name, $price, $image, $id,$type_id)
 				<div class="product-btns">
 					<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 					<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-					<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+					<a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a> 
 				</div>
 			</div>
 			<div class="add-to-cart">

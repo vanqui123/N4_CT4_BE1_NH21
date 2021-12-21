@@ -146,9 +146,17 @@
         $sql->bind_param("i", $manu_id);
         return $sql->execute(); //return an object
     }
-    public function getProductsFeature()
+    public function get3ProductsFeature()
     {
         $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `feature`=1 ORDER BY `id` DESC LIMIT 3");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    public function getAllProductsFeature()
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `feature`=1 ORDER BY `id` DESC");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

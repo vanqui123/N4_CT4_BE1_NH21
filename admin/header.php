@@ -3,6 +3,8 @@ require "models/db.php";
 require "models/product.php";
 require "models/manufacture.php";
 require "models/protypers.php";
+require "models/user.php";
+
 
 $product = new Product;
 $manu = new Manufacture;
@@ -10,6 +12,7 @@ $protype = new Protypes;
 $getAllProtypes = $protype->getAllProtypes();
 $getAllProducts = $product->getAllProducts();
 $getAllManu = $manu->getAllManu();
+$user = new User;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +22,8 @@ $getAllManu = $manu->getAllManu();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+   <!-- Google Font: Source Sans Pro -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -282,7 +285,7 @@ $getAllManu = $manu->getAllManu();
                                     </a>
                                     </li>
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link <?= ($activePage == 'index') ? 'active' : ''; ?>">
+                            <a href="user.php" class="nav-link <?= ($activePage == 'user') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Users

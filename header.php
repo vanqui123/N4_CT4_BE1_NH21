@@ -252,10 +252,12 @@ if(isset($_POST['add'])){
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
-
-					<li class="active"><a href="index.php">Home</a></li>
+				<?php $activePage = basename($_SERVER['PHP_SELF'], ".php"); ?>
+					<li class="<?= ($activePage == 'index') ? 'active' : ''; ?>"><a href="index.php">Home</a></li>
 					<?php foreach ($getAllManu as $value) : ?>
-						<li class=""><a href="products.php?manu_id=<?php echo $value['manu_id']; ?>"><?php echo $value['manu_name'] ?></a></li>
+						<li class="<?php if (isset($_GET['manu_id']) && $_GET['manu_id'] ==  $value['manu_id']) {
+										echo 'active';
+									} else echo ""; ?>"><a href="products.php?manu_id=<?php echo $value['manu_id']; ?>"><?php echo $value['manu_name'] ?></a></li>
 					<?php endforeach ?>
 
 				</ul>

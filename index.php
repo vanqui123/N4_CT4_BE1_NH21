@@ -93,21 +93,18 @@ require_once('component.php');
 						<!-- tab -->
 						<div id="tab1" class="tab-pane active">
 							<div class="products-slick" data-nav="#slick-nav-1">
-							
 								<?php
 								if (isset($_GET["type_id"])) {
 									$type_id = $_GET["type_id"];
 									$getProductsByType = $product->getProductsByType($type_id);
 									foreach ($getProductsByType  as $value) {
-										componentNewByID($value['name'], $value['price'], $value['image'], $value['id'],$value['type_id']);
+										componentNewByID($value['name'], $value['price'], $value['image'], $value['id'], $value['type_id']);
 									}
 								} else {
-									foreach($getAllProducts as $vl){
-										componentNewProduct($vl['name'], $vl['price'], $vl['image'], $vl['id'],$vl['type_id']);
-
+									foreach ($getAllProducts as $vl) {
+										componentNewProduct($vl['name'], $vl['price'], $vl['image'], $vl['id'], $vl['type_id']);
 									}
 								}
-
 								?>
 
 							</div>
@@ -183,13 +180,8 @@ require_once('component.php');
 			<!-- section title -->
 			<div class="col-md-12">
 				<div class="section-title">
-					<h3 class="title">Top selling</h3>
+					<h3 class="title">FEATURED PRODUCTS</h3>
 					<div class="section-nav">
-						<ul class="section-tab-nav tab-nav">
-							<?php foreach ($getAllProtypes as $value) : ?>
-								<li class=""><a href="products.php?type_id=<?php echo $value['type_id']; ?>"><?php echo $value['type_name'] ?></a></li>
-							<?php endforeach ?>
-						</ul>
 					</div>
 				</div>
 			</div>
@@ -203,11 +195,11 @@ require_once('component.php');
 						<div id="tab2" class="tab-pane fade in active">
 							<div class="products-slick" data-nav="#slick-nav-2">
 								<!-- product -->
-								<?php foreach ($getProductLapTop as $value) {
-									componentLapTop($value['name'], $value['price'], $value['image'], $value['id']);
+								<?php 
+								$getAllProductsFeature = $product->getAllProductsFeature();
+								foreach ($getAllProductsFeature as $value) {
+									componentProFeature($value['name'], $value['price'], $value['image'], $value['id'],$value['type_id']);
 								} ?>
-
-
 								<!-- /product -->
 							</div>
 							<div id="slick-nav-2" class="products-slick-nav"></div>
