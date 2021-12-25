@@ -18,45 +18,47 @@ $getAllManu = $Manufacture->getAllManu();
 $protypes = new Protypes;
 $getAllProtypes = $protypes->getAllProtypes();
 
-if(isset($_POST['add'])){
-	// print_r($_POST['id']);
-	if(isset($_SESSION['cart'])){
-	$myitems =	array_column($_SESSION['cart'],'name');
-	if(in_array($_POST['name'],$myitems)){
-		echo"<script> alert('Item Already Added');
+if (isset($_POST['add'])) {
+	if (!isset($_SESSION['user'])) {
+		unset($_SESSION['cart']);
+		echo "<script> alert('Vui lòng đăng nhập để xem đơn hàng')</script>";
+		echo "<script>window.location = 'index.php'</script>";
+	} else {
+		// print_r($_POST['id']);
+		if (isset($_SESSION['cart'])) {
+			$myitems =	array_column($_SESSION['cart'], 'name');
+			if (in_array($_POST['name'], $myitems)) {
+				echo "<script> alert('Item Already Added');
 				window.location.href ='index.php';
 			</script>";
-		
-	}
-	else{
-		$count = count($_SESSION['cart']);
-		$_SESSION['cart'][$count] = array(
-		'id'=> $_POST['id'],
-		'image'=> $_POST['image'],
-		'name'=> $_POST['name'],
-		'price'=> $_POST['price'],
-		'Quantity'=>1,
-		);
-		echo"<script> alert('Item Already Added');
+			} else {
+				$count = count($_SESSION['cart']);
+				$_SESSION['cart'][$count] = array(
+					'id' => $_POST['id'],
+					'image' => $_POST['image'],
+					'name' => $_POST['name'],
+					'price' => $_POST['price'],
+					'Quantity' => 1,
+				);
+				echo "<script> alert('Item Already Added');
 				window.location.href ='index.php';
 			</script>";
-	}
-															
-	}
-	else{
-		$_SESSION['cart'][0] = array(
-			'id'=> $_POST['id'],
-	'image'=> $_POST['image'],
-	'name'=> $_POST['name'],
-	'price'=> $_POST['price'],
-	'Quantity'=>1
-	);
-	echo"<script> alert('Item Adeed');
+			}
+		} else {
+			$_SESSION['cart'][0] = array(
+				'id' => $_POST['id'],
+				'image' => $_POST['image'],
+				'name' => $_POST['name'],
+				'price' => $_POST['price'],
+				'Quantity' => 1
+			);
+			echo "<script> alert('Item Adeed');
 				window.location.href ='index.php';
 			</script>";
+		}
 	}
-	}
-	
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -114,13 +116,15 @@ if(isset($_POST['add'])){
 				<ul class="header-links pull-right">
 					<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
 					<?php
-					if (!isset($_SESSION['user'])) {?>
-					<li><a href="login/index.php"><i class="fa fa-user-o"></i> My Account</a></li>
-						<?php } else {
-							 ?>
-							<li><a href="#"><i class="fa fa-user-o"></i> <?php echo $_SESSION['user']?> </a></li>
-							<li><a href="models/logout.php"><i</i>/ Logout </a></li>
-							<?php	} ?>
+					if (!isset($_SESSION['user'])) { ?>
+						<li><a href="login/index.php"><i class="fa fa-user-o"></i> My Account</a></li>
+					<?php } else {
+					?>
+						<li><a href="#"><i class="fa fa-user-o"></i> <?php echo $_SESSION['user'] ?> </a></li>
+						<li><a href="models/logout.php">
+								<i< /i>/ Logout
+							</a></li>
+					<?php	} ?>
 				</ul>
 			</div>
 		</div>
@@ -187,37 +191,37 @@ if(isset($_POST['add'])){
 								</a>
 								<div class="cart-dropdown">
 									<div class="cart-list">
-									<?php 
-													
-													if (isset($_SESSION['cart'])){
-														$product_id = array_column($_SESSION['cart'], 'id');
-														foreach($getAllProducts as $value){                  
-															foreach ($product_id as $id){
-																if ($value['id'] == $id){
-													?>
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/<?php echo $value['image']?>" alt="">
-												</div>
-												<div class="product-body">
-													
-													<h3 class="product-name"><a href="#"><?php echo $value['name']?></a></h3>
-													<h4 class="product-price"><?php echo number_format($value['price'])  ?>VNĐ</h4>
-												
-												
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-											<?php 
+										<?php
+
+										if (isset($_SESSION['cart'])) {
+											$product_id = array_column($_SESSION['cart'], 'id');
+											foreach ($getAllProducts as $value) {
+												foreach ($product_id as $id) {
+													if ($value['id'] == $id) {
+										?>
+														<div class="product-widget">
+															<div class="product-img">
+																<img src="./img/<?php echo $value['image'] ?>" alt="">
+															</div>
+															<div class="product-body">
+
+																<h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+																<h4 class="product-price"><?php echo number_format($value['price'])  ?>VNĐ</h4>
+
+
+															</div>
+															<button class="delete"><i class="fa fa-close"></i></button>
+														</div>
+										<?php
+													}
 												}
-																}
-															}
-														}
-												?>
+											}
+										}
+										?>
 									</div>
 
 									<div class="cart-btns">
-										<a href="cart.php">View Cart</a>
+										<a href="checkLogin.php">View Cart</a>
 										<a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
 									</div>
 								</div>
@@ -252,7 +256,7 @@ if(isset($_POST['add'])){
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
-				<?php $activePage = basename($_SERVER['PHP_SELF'], ".php"); ?>
+					<?php $activePage = basename($_SERVER['PHP_SELF'], ".php"); ?>
 					<li class="<?= ($activePage == 'index') ? 'active' : ''; ?>"><a href="index.php">Home</a></li>
 					<?php foreach ($getAllManu as $value) : ?>
 						<li class="<?php if (isset($_GET['manu_id']) && $_GET['manu_id'] ==  $value['manu_id']) {

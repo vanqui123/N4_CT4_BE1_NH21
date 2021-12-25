@@ -18,7 +18,7 @@ mysqli_set_charset($con, 'UTF8');
 
 <body>
 
-  <div class="container mt-5" style='margin-left: 230px; width: 100%;'>
+  <div class="container mt-8 col-10" style='margin-left: 260px; width: 100%;'>
     <div class="row">
       <div class='col lg-12'>
         <table class="table text-center table-dark">

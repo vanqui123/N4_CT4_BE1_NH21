@@ -1,5 +1,5 @@
 <?php
-function componentNewByID($name, $price, $image, $id,$type_id)
+function componentNewByID($name, $price, $image, $id, $type_id)
 {
 ?>
 	<!-- product -->
@@ -24,15 +24,14 @@ function componentNewByID($name, $price, $image, $id,$type_id)
 				<div class="product-btns">
 					<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 					<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-					<a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a> 
+					<a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a>
 
 				</div>
 			</div>
 
 			<div class="add-to-cart">
 				<form action="index.php" method="post">
-
-					<button type="submit" name="add" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+					<button type="submit" name="add" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>add to cart</button>
 					<input type="hidden" name="id" value="<?php echo $id ?>">
 
 					<input type="hidden" name="image" value="<?php echo $image ?>">
@@ -45,7 +44,7 @@ function componentNewByID($name, $price, $image, $id,$type_id)
 	<!-- /product -->
 <?php }
 ?>
-<?php function componentProFeature($name, $price, $image, $id,$type_id)
+<?php function componentProFeature($name, $price, $image, $id, $type_id)
 { ?>
 	<form action="index.php" method="post" enctype="multipart/form-data">
 		<div class="product">
@@ -70,7 +69,7 @@ function componentNewByID($name, $price, $image, $id,$type_id)
 				<div class="product-btns">
 					<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 					<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-					<a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a> 
+					<a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a>
 				</div>
 			</div>
 			<div class="add-to-cart">
@@ -86,7 +85,7 @@ function componentNewByID($name, $price, $image, $id,$type_id)
 	</form>
 <?php } ?>
 
-<?php function componentSearch($name, $price, $image, $id)
+<?php function componentSearch($name, $price, $image, $id, $type_id)
 { ?>
 	<form action="index.php" method="post" enctype="multipart/form-data">
 		<div class="col-md-4 col-xs-6">
@@ -117,7 +116,7 @@ function componentNewByID($name, $price, $image, $id,$type_id)
 				</div>
 				<div class="add-to-cart">
 					<form action="index.php" method="post">
-						<button type="submit" name="add" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						<a href=""><button type="submit" name="add" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button></a>
 						<input type="hidden" name="id" value="<?php echo $id ?>">
 					</form>
 				</div>
@@ -126,7 +125,7 @@ function componentNewByID($name, $price, $image, $id,$type_id)
 	</form>
 <?php } ?>
 <?php
-function componentNewProduct($name, $price, $image, $id,$type_id)
+function componentNewProduct($name, $price, $image, $id, $type_id)
 {
 ?>
 	<!-- product -->
@@ -151,19 +150,20 @@ function componentNewProduct($name, $price, $image, $id,$type_id)
 				<div class="product-btns">
 					<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 					<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-					 <a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a> 
+					<a href="product_detail.php?id=<?php echo $id ?>&type_id=<?php echo $type_id ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a>
 				</div>
 			</div>
-
-			<div class="add-to-cart">
+			<a href="checklogin.php"><div class="add-to-cart">
 				<form action="index.php" method="post">
-					<button type="submit" name="add" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+					
+					<button type="submit" name="add" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart </button>
 					<input type="hidden" name="id" value="<?php echo $id ?>">
 					<input type="hidden" name="image" value="<?php echo $image ?>">
 					<input type="hidden" name="name" value="<?php echo $name ?>">
 					<input type="hidden" name="price" value="<?php echo $price ?>">
 				</form>
-			</div>
+			</div></a>
+			
 		</div>
 	</form>
 	<!-- /product -->

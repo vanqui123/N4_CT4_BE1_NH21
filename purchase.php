@@ -1,6 +1,7 @@
 <?php
 session_start();
-$con =mysqli_connect("localhost","root","","nhom4");
+$con =mysqli_connect("localhost","root","","nhom4-be");
+mysqli_set_charset($con, 'UTF8');
 if(mysqli_connect_error()){
     echo"<script>
     alert('cannot connect to database');

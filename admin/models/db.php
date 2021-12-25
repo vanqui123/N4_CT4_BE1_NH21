@@ -12,6 +12,6 @@ class Db
     }
 }
 if(!isset($_SESSION['user'])){
-    header('location:/Nhom4BE/login');
+    header('location:/n4_ct4_be1_nh21/login');
 }
 

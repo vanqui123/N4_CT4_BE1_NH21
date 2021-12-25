@@ -90,15 +90,15 @@
                       <?php echo $value['phone'] ?>
                       </td>
                       <td class="text-center">
-                      <?php echo $value['role_name'] ?>
+                      <?php echo $value['roles'] ?>
                       </td>
                       <td class="project-actions text-right" >
-                          <a class="btn btn-info btn-sm" href="editproduct.php?id=<?php echo $value['user_id']; ?>">
+                          <a class="btn btn-info btn-sm" href="edituser.php?id=<?php echo $value['user_id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit  
                           </a>
-                          <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $value['user_id']; ?>">
+                          <a class="btn btn-danger btn-sm" href="deluser.php?user_id=<?php echo $value['user_id']; ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

@@ -12,7 +12,6 @@ if(isset($_POST['submit'])){
         $manu_id = $_POST['manu'];
     }else{
         $manu_id=1;
-
     } 
     if(isset($_POST['type'])){
         $type_id = $_POST['type'];
@@ -34,10 +33,27 @@ if(isset($_POST['submit'])){
         $image="";
     }
     // thêm
-    $product->editProduct($name,$manu_id,$type_id,$price,$image,$desc,$feature,$id);
     // upload Hình
-    $target_dir = "../img/";
-    $target_file = $target_dir . basename($_FILES["image"]["name"]);
-    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+     //checks file extension for images only
+     $allowed =  array('gif','png' ,'jpg');
+     $ext = pathinfo($image, PATHINFO_EXTENSION);
+         if(!in_array($ext,$allowed) ) 
+             {           
+ echo"
+ <script>
+        alert('file extension not allowed');
+        window.location.href='addproduct.php?file_type_not_allowed_error';
+ </script>
+ ";
+exit(0);
+     }
+     else{
+        // thêm
+        $product->editProduct($name,$manu_id,$type_id,$price,$image,$desc,$feature,$id);
+        // upload Hình
+        $target_dir = "../img/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);  
+     }
 }
 header('location:products.php');

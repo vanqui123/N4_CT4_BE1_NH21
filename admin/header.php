@@ -22,8 +22,8 @@ $user = new User;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
 
-   <!-- Google Font: Source Sans Pro -->
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -258,16 +258,16 @@ $user = new User;
                                 </p>
                             </a>
                         </li>
-                                <li class="nav-item">
-                                <a href="addmanu.php" class="nav-link <?= ($activePage == 'addmanu') ? 'active' : ''; ?>">
-                                   
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>
+                        <li class="nav-item">
+                            <a href="addmanu.php" class="nav-link <?= ($activePage == 'addmanu') ? 'active' : ''; ?>">
+
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
                                     Add Manufactures
-                                    </p>
-                                    </a>
-                                    </li>
-                                <li class="nav-item">
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="protype.php" class="nav-link <?= ($activePage == 'protype') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -276,14 +276,14 @@ $user = new User;
                             </a>
                         </li>
                         <li class="nav-item">
-                                <a href="addprotype.php" class="nav-link <?= ($activePage == 'addprotype') ? 'active' : ''; ?>">
-                                   
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>
+                            <a href="addprotype.php" class="nav-link <?= ($activePage == 'addprotype') ? 'active' : ''; ?>">
+
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
                                     Add ProTypes
-                                    </p>
-                                    </a>
-                                    </li>
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="user.php" class="nav-link <?= ($activePage == 'user') ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -292,14 +292,22 @@ $user = new User;
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item menu-open">
-            <a href="managent_order.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Oder Managent
-              </p>
-            </a>
-            </li>
+                        <li class="nav-item">
+                            <a href="adduser.php" class="nav-link <?= ($activePage == 'adduser') ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                 Add   Users
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="managent_order.php" class="nav-link <?= ($activePage == 'managent_order') ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Oder Managent
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

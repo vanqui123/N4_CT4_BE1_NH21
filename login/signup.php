@@ -28,16 +28,16 @@
         <h1>Creative SignUp Form</h1>
         <div class="main-agileinfo">
             <div class="agileits-top">
-                <form action="resigter.php" method="post" novalidate>
-                    <input class="text" type="text" name="fullname" placeholder="Full name" required=""> <br>
-                    <input class="text" type="text" name="username" placeholder="Username" required="">
+                <form action="resigter.php" method="post">
+                    <input id="fullname" class="text" type="text" name="fullname" placeholder="Full name" required=""> <br>
+                    <input id="username" class="text" type="text" name="username" placeholder="Username" required="">
                     <div>
-                        <input class="text email" type="email" name="email" placeholder="Email" required="">
+                        <input id="email" class="text email" type="email" name="email" placeholder="Email" required="">
                     </div>
-                    <input class="text" type="text" name="phone" placeholder="Phone" required=""> <br>
+                    <input id="phone" class="text" type="text" name="phone" placeholder="Phone" required=""> <br>
 
-                    <input class="text" type="password" name="password" placeholder="Password" required="">
-                    <input class="text w3lpass" type="password" name="repassword" placeholder="Confirm Password" required="">
+                    <input id="password" class="text" type="password" name="password" placeholder="Password" required="">
+                    <input id="repassword" class="text w3lpass" type="password" name="repassword" placeholder="Confirm Password" required="">
                     <div class="wthree-text">
                         <label class="anim">
                             <input type="checkbox" class="checkbox" required="">
@@ -69,6 +69,94 @@
         </ul>
     </div>
     <!-- //main -->
+       <!-- <script>
+        var username = document.querySelector('#username');
+        var fullname = document.querySelector('#fullname');
+        var email = document.querySelector('#email');
+        var phone = document.querySelector('#phone');
+        var repassword = document.querySelector('#repassword');
+        var password = document.querySelector('#password');
+        var form = document.querySelector('form');
+
+        function showError(input, message) {
+            let parent = intput.parentElement;
+            let small = parent.querySelector('small')
+            parent.classList.add('error')
+            small.innerText = ' '
+        }
+
+        function showSuccess(input) {
+            let parent = intput.parentElement;
+            let small = parent.querySelector('small')
+            parent.classList.remove('error')
+            small.innerText = ' '
+        }
+
+        function checkEmail(input) {
+            const regexEmail =
+                /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            intput.value = intput.value.strim()
+            let isEmailError = !regexEmail.test(input.value)
+            if (regexEmail.test(input.value)) {
+                showSuccess(intput)
+            } else showError(intput, 'Email Invalid')
+            return isEmailError
+        }
+
+        function checkPhone(input) {
+            const regexPhone =
+                /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
+            intput.value = intput.value.strim()
+            let isPhoneError = !regexPhone.test(input.value)
+            if (regexPhone.test(input.value)) {
+                showSuccess(intput)
+            } else showError(intput, 'Phone Invalid')
+            return isPhoneError
+        }
+
+        function checkFullname(input) {
+            const regexFullname =
+                /^([\w]{3,})+\s+([\w\s]{3,})+$/i;
+            intput.value = intput.value.strim()
+            let isFullnameError = !regexFullname.test(input.value)
+            if (regexFullname.test(input.value)) {
+                showSuccess(intput)
+            } else showError(intput, 'Full Name Invalid')
+            return isFullnameError
+        }
+
+        function checkLenght(intput, min, max) {
+            intput.value = intput.value.strim()
+            if (input.value.lenght < min) {
+                showError(intput, `Phải có ít nhất ${min} kí tự!`)
+                return true;
+            }
+            if (input.value.lenght > max) {
+                showError(intput, `Không được quá ${max} kí tự!`)
+                return true;
+            }
+
+            return false
+        }
+
+        function checkMatchPasswordError(password, repassword) {
+            if (password.value !== repassword.value) {
+                showError(repassword, 'Mật khẩu không trùng khớp!!')
+                return true;
+            }
+            return false;
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault()
+            let isPhoneError = checkEmail(phone)
+            let isFullnameError = checkEmail(fullname)
+            let isPasswordError = checkLenght(password, 3, 15)
+            let isUsernameError = checkLenght(username, 3, 15)
+            let isMatchError = checkMatchPasswordError(password, repassword)
+        })
+    </script>  -->
+    
 </body>
 
 </html>

@@ -6,7 +6,7 @@
 		<!-- row -->
 		<div class="row">
 			<div class="col-md-12">
-			<ul class="breadcrumb-tree">
+				<ul class="breadcrumb-tree">
 					<li><a href="#">Search Results</a></li>
 					<li class="active"><?php
 										if (isset($_GET['manu_id']))
@@ -38,15 +38,15 @@
 				<div class="aside">
 					<h3 class="aside-title">Categories</h3>
 					<div class="checkbox-filter">
-					<?php foreach($getAllProtypes as $value): ?>
-						<div class="input-checkbox">
-							<input type="checkbox" id="category-1">
-							<label for="category-1">
-								<span></span>
-								<?php echo $value['type_name'] ?>
-								<small><?php echo "(12)"; ?></small>
-							</label>
-						</div>
+						<?php foreach ($getAllProtypes as $value) : ?>
+							<div class="input-checkbox">
+								<input type="checkbox" id="category-1">
+								<label for="category-1">
+									<span></span>
+									<?php echo $value['type_name'] ?>
+									<small><?php echo "(12)"; ?></small>
+								</label>
+							</div>
 						<?php endforeach ?>
 
 					</div>
@@ -77,15 +77,15 @@
 				<div class="aside">
 					<h3 class="aside-title">Brand</h3>
 					<div class="checkbox-filter">
-					<?php foreach($getAllManu as $value): ?>
-						<div class="input-checkbox">
-							<input type="checkbox" id="brand-1">
-							<label for="brand-1">
-								<span></span>
-								<?php echo $value['manu_name'] ?>
-								<small>(578)</small>
-							</label>
-						</div>
+						<?php foreach ($getAllManu as $value) : ?>
+							<div class="input-checkbox">
+								<input type="checkbox" id="brand-1">
+								<label for="brand-1">
+									<span></span>
+									<?php echo $value['manu_name'] ?>
+									<small>(578)</small>
+								</label>
+							</div>
 						<?php endforeach ?>
 					</div>
 				</div>
@@ -94,21 +94,21 @@
 				<!-- aside Widget -->
 				<div class="aside">
 					<h3 class="aside-title">Featured Products</h3>
-					<?php 
-						$get3ProductsFeature = $product->get3ProductsFeature();
-					foreach($get3ProductsFeature as $value): ?>
-					<div class="product-widget">
-						<div class="product-img">
-							<img src="./img/<?php echo $value['image'] ?>" alt="">
+					<?php
+					$get3ProductsFeature = $product->get3ProductsFeature();
+					foreach ($get3ProductsFeature as $value) : ?>
+						<div class="product-widget">
+							<div class="product-img">
+								<img src="./img/<?php echo $value['image'] ?>" alt="">
+							</div>
+							<div class="product-body">
+								<p class="product-category">Category</p>
+								<h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+								<h4 class="product-price"><?php echo number_format($value['price']) ?></h4>
+							</div>
 						</div>
-						<div class="product-body">
-							<p class="product-category">Category</p>
-							<h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
-							<h4 class="product-price"><?php echo number_format($value['price']) ?></h4>
-						</div>
-					</div>
-						<?php endforeach; ?>
-					
+					<?php endforeach; ?>
+
 				</div>
 				<!-- /aside Widget -->
 			</div>
@@ -180,11 +180,19 @@
 										<div class="product-btns">
 											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+											<a href="product_detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><i class="fa fa-eye"></i><span class="tooltipp"></span></a>
 										</div>
 									</div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										<form action="index.php" method="post">
+
+											<button type="submit" name="add" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											<input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+
+											<input type="hidden" name="image" value="<?php echo $value['image']; ?>">
+											<input type="hidden" name="name" value="<?php echo  $value['name']; ?>">
+											<input type="hidden" name="price" value="<?php echo $value['price']; ?>">
+										</form>
 									</div>
 								</div>
 							</div>
@@ -198,7 +206,7 @@
 				<div class="store-filter clearfix">
 					<span class="store-qty">Showing 20-100 products</span>
 					<ul class="store-pagination">
-						<?php echo $product->paginate($url, $total, $perPage,$page); ?>
+						<?php echo $product->paginate($url, $total, $perPage, $page); ?>
 					</ul>
 				</div>
 				<!-- /store bottom filter -->

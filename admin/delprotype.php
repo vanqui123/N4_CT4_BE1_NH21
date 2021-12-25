@@ -4,14 +4,15 @@
  require "models/product.php";
 $product = new Product;
 if(isset($_GET['type_id'])){
-
-    if($value['type_id'] ==  $product->getAllProductByTypeId($_GET['type_id'])){
+  $getAllProductByTypeId = $product-> getAllProductByTypeId($_GET['type_id']);
+    if(count($getAllProductByTypeId) == 0){
         $product->delProtype(($_GET['type_id']));
+echo"<script> alert('Xóa thành công')</script>";
+
       }
-    else{
-        echo"<script> alert('Item Already Added');
-        window.location.href ='protype.php';
-    </script>";
+    else {
+      echo"<script> alert('Loại sản phẩm bạn xóa vẫn đang tồn tại !KHÔNG THỂ XÓA!!!')</script>";
     }
 }
-header('location:protype.php');
+    echo "<script>window.location = 'protype.php'</script>";
+

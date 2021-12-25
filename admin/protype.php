@@ -59,12 +59,7 @@
                       <td class="text-center">
                       <?php echo $value['type_name'] ?>
                       </td>
-                      <td class="project-actions text-center" >
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
+                      <td class="project-actions text-center">
                           <a class="btn btn-danger btn-sm" href="delprotype.php?type_id=<?php echo $value['type_id']?>"
                           onClick="return confirm('Bạn thực sự muốn xóa?')">
                               <i class="fas fa-trash">

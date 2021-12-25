@@ -1,8 +1,9 @@
-<?php
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 
+<?php
 session_start();
 
-   require "config.php";
+    require "config.php";
     require "models/db.php";
     require "models/product.php";
 
@@ -59,7 +60,14 @@ if(isset($_POST['Mod_Quantity'])){
     <div class="row px-5">
         <div class="col-md-7">
             <div class="shopping-cart">
-                <h6>My Cart</h6>
+            <div style=" display: flex;">
+                <a style="font-size: 30px;" href="index.php">Home</a>
+                <h6 style="
+                   margin-left: 15px;
+                     margin-top: 12px;
+
+                ">My Cart</h6>
+                </div>
                 <hr>
                 <?php
                     if (isset($_SESSION['cart'])){
@@ -188,13 +196,12 @@ if(isset($_POST['Mod_Quantity'])){
 
     </div>
 </div>
-
+                                
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
 <script>
     const numberFormat = new Intl.NumberFormat('vi-VN', {
   style: 'currency',
@@ -223,4 +230,4 @@ function subTotal()
 }
 subTotal();
 </script>
-</html>
+<?php include "footer.html" ?>

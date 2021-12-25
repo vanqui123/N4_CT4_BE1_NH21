@@ -2,15 +2,20 @@
  require "config.php";
  require "models/db.php";
  require "models/product.php";
-$product = new Product;
+ $product = new Product;
 if(isset($_GET['manu_id'])){
-    if($value['manu_id'] ==  $product->getAllProductByManuId($_GET['manu_id'])){
-    $product->delManu($_GET['manu_id']);
-      }
-    else{
-        echo"<script> alert('Item Adeed');
-                    window.location.href ='manufacture.php';
-                </script>";
-    }
+  $getAllProductByManuId = $product->getAllProductByManuId($_GET['manu_id']);
+
+if(count($getAllProductByManuId) == 0 ) {
+$product->delManu($_GET['manu_id']);
+echo"<script> alert('Xóa thành công')</script>";
+  }
+else{
+    
+  echo"<script> alert('Hãng sản phẩm bạn xóa vẫn đang tồn tại !KHÔNG THỂ XÓA!!!')</script>";
+    
+	
 }
-header('location:manufacture.php');
+  }
+  echo "<script>window.location = 'manufacture.php'</script>";
+
